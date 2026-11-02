@@ -17,6 +17,7 @@ pandas = "*"
 matplotlib = "*"
 numpy = "*"
 scipy = "*"
+pytest = ">=9.2.0,<10"
 
 [feature.agent.dependencies]
 ruff = "*"

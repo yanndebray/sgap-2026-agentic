@@ -1,20 +1,19 @@
 """Data loading and X-marker wiring.
 
-Owns: how raw data is materialized into `(X, y)`, and how structural
-metadata (groups, time ordering, ...) is attached at the X marker via
-`split_kwargs`. Data paths are decided by the caller — this module
-does not invent a `data/` directory.
+Owns: how the raw tephra table is read from disk. The target is the
+volcano that produced the sample. The loader only describes what data
+exists; column choices and cleaning live in `features.py` and the graph.
 """
 
 from __future__ import annotations
 
+from pathlib import Path
 
-def load_dataset():
-    """Return `(X, y)` ready for the pipeline.
+import pandas as pd
 
-    Replace the body with the actual loader: `pd.read_parquet`,
-    `pd.read_csv`, a fixture fetch, a remote query, etc. The return
-    contract is `(X, y)` where `X` is a DataFrame (or whatever the
-    pipeline expects at its X marker) and `y` is the target.
-    """
-    raise NotImplementedError
+TARGET_COL = "Volcano"
+
+
+def load_table(path: str | Path) -> pd.DataFrame:
+    """Read one tephra table (`train.csv` or `test.csv`) with its target."""
+    return pd.read_csv(path)
