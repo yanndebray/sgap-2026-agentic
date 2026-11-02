@@ -32,3 +32,6 @@ mkdocs-material = ">=9.8.0,<10"
 default = { solve-group = "default" }
 agent = { features = ["agent"], no-default-feature = true }
 dev = { features = ["agent"], solve-group = "default" }
+
+[pypi-dependencies]
+volcano = { path = "/workspaces/sgap-2026-agentic", editable = true }

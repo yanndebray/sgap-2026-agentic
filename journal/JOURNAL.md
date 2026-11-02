@@ -4,8 +4,8 @@
 
 | Variable | Value |
 |---|---|
-| Project / dataset | <fill in — e.g., `adult-census` classification> |
-| Goal | <one sentence — what would "done" look like for this project?> |
+| Project / dataset | Southern Andes tephra geochemistry — `Volcano` classification (`data/train.csv`, `data/test.csv`) |
+| Goal | Predict which volcano a tephra sample came from, evaluated on a held-out set of new samples. |
 | Last experiment | <NN_name> — <status: planned \| approved \| running \| done \| abandoned> |
 | Last result | <one-line headline metric, or "n/a" if not yet run> |
 
@@ -13,8 +13,8 @@
 
 | Variable | Value |
 |---|---|
-| Status | <done \| skipped> — <YYYY-MM-DD> |
-| Summary | <2–4 lines — dataset shape, target balance/skew, and the one or two findings that most shape the modelling choices. "n/a" until the data has been explored.> |
+| Status | done — 2026-11-02 |
+| Summary | train 6,220 × 95 and test 839 × 95 tephra samples, no duplicate rows; target `Volcano` has 13 imbalanced classes (1,685 down to 77 rows). `Event`, `SampleID` and `SampleObservationID` identify the volcano on their own, and the shipped test table is split by sample (0 of 118 `SampleID` shared with train). Trace elements are missing in ~78% of rows and missingness depends on the volcano. |
 | Report | [data_analysis/data_analysis.md](../data_analysis/data_analysis.md) |
 
 ## Modeling decisions
