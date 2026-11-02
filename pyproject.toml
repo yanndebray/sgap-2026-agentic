@@ -1,0 +1,35 @@
+# Package metadata and tool config for an ML experimentation workspace.
+# Env-manager tables ([tool.pixi], [dependency-groups], …) are added by
+# `python -m skore_skills env init --manager <name>`.
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "volcano"
+version = "0.1.0"
+description = "Workspace package for the volcano ML experiments."
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/volcano"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "D"]
+
+[tool.ruff.lint.per-file-ignores]
+"experiments/**" = ["E402", "B018", "D100", "D103"]
+"audit/**" = ["E402", "B018", "D100", "D103"]
+"data_analysis/**" = ["E402", "B018", "D100", "D103"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.format]
+docstring-code-format = true
